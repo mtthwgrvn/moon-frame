@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>ATLAS - A Web-VR Experiment</title>
+    <meta name="description" content="A-Frame Environment Component">
+    <meta name="author" content="Matthew Garvin">
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Voces">
+
+    <!-- Scripts -->
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="dist/aframe-environment-component.min.js"></script>
+
+  </head>
+  <body>
+    <div id="about">
+
+      <b>Welcome to the Lunar Analog Environment for <a href="https://claws.engin.umich.edu/projects/atlas">ATLAS</a></b>
+      <p><b>A CLAWS Web-VR experiment.</b></p>
+      <p><a href="https://claws.engin.umich.edu/home">Visit us</a></p>
+    </div>
+
+    <h1>
+      <b>The Moon</b>
+    </h1>
+
+    <script>
+      AFRAME.registerComponent('overlay-visibility', {
+        init: function () {
+          if (!this.el.isMobile) {
+            document.querySelector('#about').style.display = 'block';
+          }
+        }
+      });
+      </script>
+
+
+    <a-scene overlay-visibility>
+
+      <a-entity environment="preset: yavapai"></a-entity>
+
+    </a-scene>
+
+
+  <script>
+    // google analytics
+    var _gaq = [['_setAccount', 'UA-5753152-1'], ['_trackPageview']];
+    (function(d, t) {
+      var g = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      g.src = '//www.google-analytics.com/ga.js';
+      s.parentNode.insertBefore(g, s);
+    }(document, 'script'));
+
+</script>
+
+
+    <div class="footer">
+			<div class="gradient left"></div>
+			<div class="gradient right"></div>
+			<a href="#" class="about-btn">About</a>
+			<div class="terms">
+				<a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a> &amp;&nbsp;<a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
+			</div>
+			<ul class="credits">
+				<li><a href="https://webvrexperiments.com/" target="_blank"><img src="img/splash/webvr-experiment.png"></a></li>
+				<li><img src="img/splash/line.png"></li>
+				<li><img src="img/splash/google-friends.png"></li>
+				<li><img src="img/splash/line.png"></li>
+                <li><a href="https://mars.nasa.gov/" target="_blank"><img src="img/splash/nasa.png"></a></li>
+			</ul>
+            <div class="headphones">
+			    <img src="./img/headphones.svg">
+			<div id="headphones-text">Headphones Recommended</div>
+		</div>
+		</div>
+  </body>
+</html>
