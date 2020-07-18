@@ -17,6 +17,7 @@
 
   </head>
   <body>
+
     <div id="about">
 
       <b>Welcome to the Lunar Analog Environment for <a href="https://claws.engin.umich.edu/projects/atlas">ATLAS</a></b>
@@ -42,6 +43,9 @@
     <a-scene overlay-visibility>
 
       <a-entity environment="preset: yavapai"></a-entity>
+      <a-entity camera look-controls position="0 1.6 0">
+         <a-cursor color="cyan"></a-cursor>
+      </a-entity>
 
     </a-scene>
 
@@ -62,21 +66,18 @@
     <div class="footer">
 			<div class="gradient left"></div>
 			<div class="gradient right"></div>
-			<a href="#" class="about-btn">About</a>
-			<div class="terms">
-				<a href="https://www.google.com/intl/en/policies/privacy/" target="_blank">Privacy</a> &amp;&nbsp;<a href="https://www.google.com/intl/en/policies/terms/" target="_blank">Terms</a>
-			</div>
+			<a href="https://mtthwx.com/about/" target="_blank" class="about-btn">About</a>
 			<ul class="credits">
 				<li><a href="https://webvrexperiments.com/" target="_blank"><img src="img/splash/webvr-experiment.png"></a></li>
 				<li><img src="img/splash/line.png"></li>
-				<li><img src="img/splash/google-friends.png"></li>
+				<li><a href="https://claws.engin.umich.edu/home" target="_blank"><img src="img/splash/claws.png"></a></li>
 				<li><img src="img/splash/line.png"></li>
-                <li><a href="https://mars.nasa.gov/" target="_blank"><img src="img/splash/nasa.png"></a></li>
+                <li><a href="https://mars.nasa.gov/" target="_blank"><img src="img/splash/atlas.png"></a></li>
 			</ul>
             <div class="headphones">
 			    <img src="./img/headphones.svg">
 			<div id="headphones-text">Headphones Recommended</div>
-		</div>
+		       </div>
 		</div>
   </body>
 </html>
