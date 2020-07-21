@@ -15,6 +15,7 @@ h1 b{
   display: inline-block;
   text-align: center;
 }
+
 #about {
   display: none;
   position: absolute;
@@ -49,40 +50,15 @@ h1 b{
 #about a:hover{
   background: rgba(255,255,255,1);
 }
-#sample {
-  display: none;
-  position: absolute;
-  z-index: 3001;
-  width: 300px;
-  top: 40px;
-  left: 40px;
-  font: 14px 'Voces', Arial, sans-serif;
-  color: white;
-  line-height: 1.3rem;
-  background: rgba(0,0,0,0.2);
-  padding: 1rem;
-  box-sizing: border-box;
+#sidebar {
+  height: 10%;
+  width: 200px;
+  background-color: #fff;
+  position: fixed !important;
+  z-index: 1;
+  overflow: auto
 }
-#sample b{
-    font-weight: bold;
-    font-family: monospace;
-}
-#sample p:last-child{
-  margin: 0;
-}
-#sample a{
-  font-size: 14px;
-  color: #000;
-  font-weight: bold;
-  text-decoration: none;
-  transition: border-bottom-width 0.1s;
-  display: inline-block;
-  background: rgba(255,255,255,0.4);
-  padding: 0 3px;
-}
-#sample a:hover{
-  background: rgba(255,255,255,1);
-}
+
 h1 a{
   color: white;
   text-decoration: none;

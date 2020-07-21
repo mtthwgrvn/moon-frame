@@ -1,29 +1,74 @@
+
 <!DOCTYPE html>
 <html>
   <head>
-
-
-    <!-- Style Sheets -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Voces">
+    <meta charset="utf-8">
+    <title>Curved Images</title>
+    <meta name="description" content="Curved Images - A-Frame">
 
     <!-- Scripts -->
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="dist/aframe-environment-component.min.js"></script>
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.tube@%5E3.5.x/dist/aframe-extras.tube.min.js"></script>
+    <script>
+      AFRAME.registerComponent('overlay-visibility', {
+        init: function () {
+          if (!this.el.isMobile) {
+            document.querySelector('#about').style.display = 'block';
+          }
+        }
+      });
+    </script>
+
+    <script>
+      // google analytics
+      var _gaq = [['_setAccount', 'UA-5753152-1'], ['_trackPageview']];
+      (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = '//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+
+    </script>
   </head>
   <body>
-   <a-scene>
-     <a-assets>
-      <img src="img/tryme.jpg" id="360photo">
-     </a-assets>
-     <a-sky src="360photo"></a-sky>
-     <a-entity camera look-controls position="0 1.6 0">
-        <a-cursor color="cyan"></a-cursor>
-     </a-entity>
-     <a-box color="red" position="2 1 -4">
-        <a-animation attribute="visible" to="false" begin="click"></a-animation>
-     </a-box>
-   </a-scene>
+    <a-scene overlay-visibility>
+
+      <a-entity environment="preset: yavapai;
+      skyColor: #000000;
+      horizonColor: #000000;
+      groundColor: #D1D1D1; groundColor2: #494949;
+      dressingColor: #494949"></a-entity>
+      <a-entity camera look-controls position="0 1.6 0">
+         <a-cursor color="cyan"></a-cursor>
+      </a-entity>
+
+      <a-assets>
+        <img id="mozvr" src="assets/img/mozvr.png">
+        <img id="shadow2" src="assets/img/radial-shadow-2.png">
+        <img id="ui1" src="ui-1.png">
+        <img id="ui2" src="ui-2.png">
+        <img id="ui3" src="ui-3.png">
+      </a-assets>
+
+      <a-curvedimage src="#ui3" radius="5.7" theta-length="180" height="9"
+                     rotation="0 90 0" scale="1.2 1.2 1.2"></a-curvedimage>
+      <a-curvedimage src="#mozvr" radius="5.7" theta-length="17" height=".36"
+                     opacity="0.2" rotation="0 250 0" position="0 2 0"></a-curvedimage>
+      <a-curvedimage src="#ui1" radius="5.7" theta-length="72" height="2.6"
+                     rotation="0 80 0" position="0 0.7 0" scale="0.6 0.6 0.6"></a-curvedimage>
+      <a-curvedimage src="#ui2" radius="5.7" theta-length="70" height="3.02"
+                     rotation="0 -130 0" scale="0.8 0.8 0.8"></a-curvedimage>
+
+      <a-image position="0 -5 0" src="#shadow2" rotation="-90 0 0" scale="6 6 6"></a-image>
+      <a-entity position="0 0 1.5">
+        <a-camera></a-camera>
+      </a-entity>
+    </a-scene>
   </body>
 </html>

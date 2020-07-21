@@ -12,8 +12,34 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Voces">
 
     <!-- Scripts -->
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-    <script src="dist/aframe-environment-component.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
+    <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+    <script src="https://unpkg.com/aframe-extras.tube@%5E3.5.x/dist/aframe-extras.tube.min.js"></script>
+    <script>
+      AFRAME.registerComponent('overlay-visibility', {
+        init: function () {
+          if (!this.el.isMobile) {
+            document.querySelector('#about').style.display = 'block';
+          }
+        }
+      });
+    </script>
+
+    <script>
+      // google analytics
+      var _gaq = [['_setAccount', 'UA-5753152-1'], ['_trackPageview']];
+      (function(d, t) {
+        var g = d.createElement(t),
+            s = d.getElementsByTagName(t)[0];
+        g.src = '//www.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s);
+      }(document, 'script'));
+
+    </script>
 
   </head>
   <body>
@@ -24,28 +50,44 @@
       <p><b>A CLAWS Web-VR experiment.</b></p>
       <p><a href="https://claws.engin.umich.edu/home">Visit us</a></p>
     </div>
+    <!--
+    <div id="sidebar">
 
+      <b>Let's test a new card for <a href="https://claws.engin.umich.edu/projects/atlas">ATLAS</a></b>
+      <p><b>Hope this works.</b></p>
+      <p><a href="https://claws.engin.umich.edu/home">Visit us</a></p>
+    </div>
+-->
     <h1>
       <b>The Moon</b>
     </h1>
 
-    <script>
-      AFRAME.registerComponent('overlay-visibility', {
-        init: function () {
-          if (!this.el.isMobile) {
-            document.querySelector('#about').style.display = 'block';
-          }
-        }
-      });
-      </script>
-
-
+    <!-- Environment -->
     <a-scene overlay-visibility>
 
-      <a-entity environment="preset: yavapai"></a-entity>
+      <a-entity environment="preset: yavapai;
+      skyColor: #000000;
+      horizonColor: #000000;
+      groundColor: #D1D1D1; groundColor2: #494949;
+      dressingColor: #494949"></a-entity>
+
       <a-entity camera look-controls position="0 1.6 0">
          <a-cursor color="cyan"></a-cursor>
       </a-entity>
+
+      <a-entity id="box" geometry="primitive: star"
+          material="color: yellow; shader: flat"
+          position="0 0.15 -5"
+          light="type: point; intensity: 5"
+          animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 -0.10 -5; loop: true"></a-entity>
+
+      <a-entity id="river" geometry="primitive: plane" material="color: blue"
+      position="-10 0 0" sound="src: url(river.mp3); autoplay: true"></a-entity>
+
+      <a-assets>
+        <audio id="river" src="river.mp3" preload="auto"></audio>
+      </a-assets>
+
 
     </a-scene>
 
@@ -72,7 +114,7 @@
 				<li><img src="img/splash/line.png"></li>
 				<li><a href="https://claws.engin.umich.edu/home" target="_blank"><img src="img/splash/claws.png"></a></li>
 				<li><img src="img/splash/line.png"></li>
-                <li><a href="https://mars.nasa.gov/" target="_blank"><img src="img/splash/atlas.png"></a></li>
+                <li><a href="https://claws.engin.umich.edu/projects/atlas" target="_blank"><img src="img/splash/atlas.png"></a></li>
 			</ul>
             <div class="headphones">
 			    <img src="./img/headphones.svg">
