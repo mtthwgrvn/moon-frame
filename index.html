@@ -31,6 +31,10 @@
       <p><a href="https://claws.engin.umich.edu/home">Visit us</a></p>
     </div>
 
+    <div id="like_button_container">
+
+    </div>
+
     <h1>
       <b>The Moon</b>
     </h1>
@@ -47,10 +51,10 @@
       <a-entity camera look-controls position="0 1.6 0">
       <!--  <a-camera> -->
          <a-cursor color="cyan"></a-cursor>
-         <a-entity geometry="primitive: plane; height: .4; width: 0.4" position="1.2 0 -1"
+        <!-- <a-entity geometry="primitive: plane; height: .4; width: 0.4" position="1.2 0 -1"
           material="color: white; opacity: 0.5"></a-entity>
           <a-entity geometry="primitive: plane; height: 0.4; width: 0.4" position="-1.2 0 -1"
-           material="color: white; opacity: 0.5"></a-entity>
+           material="color: white; opacity: 0.5"></a-entity> -->
     <!--    </a-camera> -->
       </a-entity>
 
@@ -92,6 +96,14 @@
 
       gtag('config', 'UA-161176538-3');
     </script>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
 
   </body>
 </html>
