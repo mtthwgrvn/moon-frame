@@ -1,19 +1,87 @@
-
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Curved Images</title>
-    <meta name="description" content="Curved Images - A-Frame">
+    <title>ATLAS - A Web-VR Experiment</title>
+    <meta name="description" content="A-Frame Environment Component">
+    <meta name="author" content="Matthew Garvin">
+    <link rel="image_src" href="https://bit.ly/2WRCaLi"/>
+
+    <!-- Style Sheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Voces">
 
     <!-- Scripts -->
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
     <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
     <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
     <script src="https://unpkg.com/aframe-extras.tube@%5E3.5.x/dist/aframe-extras.tube.min.js"></script>
+  </head>
+
+  <body>
+
+    <div id="about">
+
+      <b>Welcome to the Lunar Analog Environment for <a href="https://claws.engin.umich.edu/projects/atlas">ATLAS</a></b>
+      <p><b>A CLAWS Web-VR experiment.</b></p>
+      <p><a href="https://claws.engin.umich.edu/home">Visit us</a></p>
+    </div>
+
+    <div id="like_button_container">
+
+    </div>
+
+    <h1>
+      <b>The Moon</b>
+    </h1>
+
+    <!-- Environment -->
+    <a-scene overlay-visibility>
+
+      <a-entity environment="preset: yavapai;
+      skyColor: #000000;
+      horizonColor: #000000;
+      groundColor: #D1D1D1; groundColor2: #494949;
+      dressingColor: #494949" ></a-entity>
+
+      <!-- Earth -->
+      <a-sphere color="#fff"
+                position="-3 3 -15"
+                src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg"
+                radius="2"
+                segments-height="53">
+      </a-sphere>
+
+      <!-- Moon -->
+      <a-sphere color="#fff"
+                position="1.5 5 -15"
+                src="https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/moon_1024.jpg"
+                radius="0.65"
+                segments-height="53">
+      </a-sphere>
+    </a-scene>
+
+    <div class="footer">
+			<div class="gradient left"></div>
+			<div class="gradient right"></div>
+			<a href="https://mtthwx.com/about/" target="_blank" class="about-btn">About</a>
+			<ul class="credits">
+				<li><a href="https://webvrexperiments.com/" target="_blank"><img src="img/splash/webvr-experiment.png"></a></li>
+				<li><img src="img/splash/line.png"></li>
+				<li><a href="https://claws.engin.umich.edu/home" target="_blank"><img src="img/splash/claws.png"></a></li>
+				<li><img src="img/splash/line.png"></li>
+                <li><a href="https://claws.engin.umich.edu/projects/atlas" target="_blank"><img src="img/splash/atlas.png"></a></li>
+			</ul>
+            <div class="headphones">
+			    <img src="./img/headphones.svg">
+			<div id="headphones-text">Headphones Recommended</div>
+		       </div>
+		</div>
+
     <script>
       AFRAME.registerComponent('overlay-visibility', {
         init: function () {
@@ -24,38 +92,23 @@
       });
     </script>
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161176538-3"></script>
     <script>
-      // google analytics
-      var _gaq = [['_setAccount', 'UA-5753152-1'], ['_trackPageview']];
-      (function(d, t) {
-        var g = d.createElement(t),
-            s = d.getElementsByTagName(t)[0];
-        g.src = '//www.google-analytics.com/ga.js';
-        s.parentNode.insertBefore(g, s);
-      }(document, 'script'));
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
+      gtag('config', 'UA-161176538-3');
     </script>
-  </head>
-  <body>
-    <a-scene>
-        <a-entity position="0 .6 4">
-            <a-camera>
-                <a-entity id="mycursor" cursor="fuse: true; fuseTimeout: 500; max-distance: 30;"
-                position="0 0 -5"
-                geometry="primitive: ring"
-                material="color: blue; shader: flat">
-                </a-entity>
-            </a-camera>
-        </a-entity>
 
-        <!-- "button" -->
-        <a-entity id="refresh-button" geometry="primitive: box" material="color: red" position="0 0 -2"></a>
-    </a-scene>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-    <script>
-        document.querySelector('#refresh-button').addEventListener('click', function() {
-            // Refresh stuff would go here!
-        });
-    </script>
+    <!-- Load our React component. -->
+    <script src="like_button.js"></script>
+
   </body>
 </html>
